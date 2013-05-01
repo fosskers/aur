@@ -15,7 +15,7 @@ conflicts=('aura' 'aura-git')
 options=('strip')
 source=(https://bitbucket.org/fosskers/aura/downloads/${_hkgname}-${pkgver}-${CARCH}.tar.gz)
 
-if [[ $CARCH = "x86_64"]]; then
+if [[ $CARCH = "x86_64" ]]; then
   md5sums=()
 else
   md5sums=()

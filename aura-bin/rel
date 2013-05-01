@@ -1,3 +1,44 @@
 #! /bin/bash
 
-path="/home/colin/code/aur/aura-bin/"
+# Needs to be passed the version number as an argument!
+[[ $1 ]] || exit
+
+echo "Working..."
+
+# Paths for syncing
+path="/home/colin/code/aur/aura-bin"
+aura="/home/colin/code/haskell/aura"
+
+# Files to copy from the current Aura source
+news=("$aura/LICENSE"
+      "$aura/pkg/aura/usr/bin/aura"
+      "$aura/aura.8"
+      "$aura/completions/bashcompletion.sh"
+      "$aura/completions/_aura")
+
+# Files to delete before copying
+olds=("LICENSE"
+      "aura"
+      "aura.8"
+      "bashcompletion.sh"
+      "_aura")
+
+# Remove old versions
+rm ${olds[@]}
+
+# Sync new versions
+for n in ${news[@]}; do
+    cp $n $path
+done
+
+# Create x86_64 tarball
+tar -czf aura-$1-x86_64.tar.gz ${olds[@]}
+makepkg -g
+
+# Create i686 tarball
+# rm aura
+# cp ?? $path  # Need to compile the i686 version ahead of time.
+# tar -czf aura-$1-i686.tar.gz ${olds[@]}
+# makepkg -g   # Wait, what?
+
+echo "Done."
