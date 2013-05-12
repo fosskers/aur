@@ -6,7 +6,7 @@ pkgrel=1
 pkgdesc="A secure package manager for Arch Linux and the AUR written in Haskell - Prebuilt binary"
 url="https://github.com/fosskers/aura"
 license=('GPL-3')
-arch=('i686' 'x86_64')
+arch=('x86_64')
 depends=('gmp' 'pacman' 'pcre' 'curl' 'abs')
 optdepends=('powerpill:    For faster repository downloads.'
             'customizepkg: For auto-editing of PKGBUILDs.')
@@ -16,7 +16,7 @@ options=('strip')
 source=(https://bitbucket.org/fosskers/aura/downloads/${_hkgname}-${pkgver}-${CARCH}.tar.gz)
 
 if [[ $CARCH = "x86_64" ]]; then
-  md5sums=()
+  md5sums=('5f40f4fd3964dbd32b1bc3bc0f797d14')
 else
   md5sums=()
 fi
