@@ -24,9 +24,15 @@ olds=("LICENSE"
       "_aura")
 
 # Remove old versions
+echo "Removing olds files..."
 rm ${olds[@]}
 
+# Remove build/source tarballs
+echo "Removing old tarballs..."
+rm aura-*
+
 # Sync new versions
+echo "Copy new files..."
 for n in ${news[@]}; do
     cp $n $path
 done
@@ -40,5 +46,7 @@ makepkg -g
 # cp ?? $path  # Need to compile the i686 version ahead of time.
 # tar -czf aura-$1-i686.tar.gz ${olds[@]}
 # makepkg -g   # Wait, what?
+
+makepkg --source
 
 echo "Done."
