@@ -47,6 +47,6 @@ makepkg -g
 # tar -czf aura-$1-i686.tar.gz ${olds[@]}
 # makepkg -g   # Wait, what?
 
-makepkg --source
+# makepkg --source
 
 echo "Done."

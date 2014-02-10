@@ -3,7 +3,7 @@
 _hkgname=temporary
 pkgname=haskell-temporary
 pkgver=1.1.2.4
-pkgrel=3
+pkgrel=4
 pkgdesc="Portable temporary file and directory support for Windows and Unix, based on code from Cabal"
 url="http://hackage.haskell.org/package/${_hkgname}"
 license=('custom:BSD3')
@@ -12,6 +12,7 @@ makedepends=()
 depends=('ghc' 'haskell-directory' 'haskell-filepath' 'haskell-unix')
 source=(http://hackage.haskell.org/package/${_hkgname}-${pkgver}/${_hkgname}-${pkgver}.tar.gz)
 sha1sums=('310b6d07014064b2ecafb794393c1bba76286a33')
+options=('staticlibs')
 install=$pkgname.install
 
 build() {

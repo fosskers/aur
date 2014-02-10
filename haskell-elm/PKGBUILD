@@ -1,7 +1,7 @@
 # Maintainer: Colin Woodbury <colingw@gmail.com>
 _hkgname=Elm
 pkgname=haskell-elm
-pkgver=0.10.1
+pkgver=0.11
 pkgrel=1
 pkgdesc="The Elm language module."
 url="http://hackage.haskell.org/package/${_hkgname}"
@@ -17,7 +17,7 @@ depends=('ghc' 'haskell-aeson' 'haskell-aeson-pretty' 'haskell-binary'
   'haskell-transformers' 'haskell-union-find' 'haskell-uniplate')
 options=('strip')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-md5sums=('e7b90fb9a41838564e2b51a42dcfcebc')
+md5sums=('31f7b033f512ffe8778f3a5269b61b1f')
 install=${pkgname}.install
 build() {
     cd ${srcdir}/${_hkgname}-${pkgver}
