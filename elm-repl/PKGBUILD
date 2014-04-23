@@ -7,11 +7,11 @@ pkgdesc="a REPL for Elm"
 url="http://hackage.haskell.org/package/${_hkgname}"
 license=('custom:BSD3')
 arch=('i686' 'x86_64')
-makedepends=('ghc' 'haskell-elm>=0.12' 'haskell-bytestring'
+makedepends=('ghc' 'haskell-bytestring'
   'haskell-bytestring-trie' 'haskell-containers' 'haskell-directory'
   'haskell-filepath' 'haskell-haskeline' 'haskell-mtl>=2' 'haskell-parsec'
   'haskell-process' 'haskell-transformers>=0.2')
-depends=('gmp' 'nodejs')
+depends=('gmp' 'nodejs' 'haskell-elm>=0.12')
 options=('strip')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
 md5sums=('2f7a8a578d135b43e908abc6dda160fc')
