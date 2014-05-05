@@ -1,18 +1,18 @@
 # Maintainer: Colin Woodbury <colingw@gmail.com>
-_hkgname=regex-pcre-builtin
-pkgname=haskell-regex-pcre-builtin
-pkgver=0.94.4.8.8.34
-pkgrel=2
-pkgdesc="Replaces/Enhances Text.Regex"
+_hkgname=exceptions
+pkgname=haskell-exceptions
+pkgver=0.6
+pkgrel=1
+pkgdesc="Extensible optionally-pure exceptions"
 url="http://hackage.haskell.org/package/${_hkgname}"
 license=('custom:BSD3')
 arch=('i686' 'x86_64')
 makedepends=()
-depends=('ghc' 'haskell-array' 'haskell-bytestring' 'haskell-containers' 'haskell-regex-base')
+depends=('ghc' 'haskell-mtl' 'haskell-transformers')
 options=('strip' 'staticlibs')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-md5sums=('e6137d8f5deefac31022efba2c7a5240')
 install=${pkgname}.install
+md5sums=('2dadfffeb7845d598105d98e3cd7343e')
 build() {
     cd ${srcdir}/${_hkgname}-${pkgver}
     runhaskell Setup configure -O ${PKGBUILD_HASKELL_ENABLE_PROFILING:+-p } --enable-split-objs --enable-shared \
