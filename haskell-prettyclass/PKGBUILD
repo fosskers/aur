@@ -1,18 +1,18 @@
 # Maintainer: Colin Woodbury <colingw@gmail.com>
-_hkgname=indents
-pkgname=haskell-indents
-pkgver=0.3.3
-pkgrel=2
-pkgdesc="indentation sensitive parser-combinators for parsec"
+_hkgname=prettyclass
+pkgname=haskell-prettyclass
+pkgver=1.0.0.0
+pkgrel=1
+pkgdesc="Pretty printing class similar to Show."
 url="http://hackage.haskell.org/package/${_hkgname}"
 license=('custom:BSD3')
 arch=('i686' 'x86_64')
 makedepends=()
-depends=('ghc' 'haskell-concatenative<2' 'haskell-mtl<3' 'haskell-parsec>=3')
+depends=('ghc' 'haskell-pretty')
 options=('strip' 'staticlibs')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-md5sums=('cd201892904654e993a8fe9f2d0c2b80')
 install=${pkgname}.install
+md5sums=('9d62cc9c4083724f2b1691ada21bdca2')
 build() {
     cd ${srcdir}/${_hkgname}-${pkgver}
     runhaskell Setup configure -O ${PKGBUILD_HASKELL_ENABLE_PROFILING:+-p } --enable-split-objs --enable-shared \
@@ -30,6 +30,4 @@ package() {
     install -d -m755 ${pkgdir}/usr/share/doc/ghc/html/libraries
     ln -s /usr/share/doc/${pkgname}/html ${pkgdir}/usr/share/doc/ghc/html/libraries/${_hkgname}
     runhaskell Setup copy --destdir=${pkgdir}
-    install -D -m644 LICENSE ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
-    rm -f ${pkgdir}/usr/share/doc/${pkgname}/LICENSE
 }
