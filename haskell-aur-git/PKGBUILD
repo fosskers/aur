@@ -16,6 +16,7 @@ source=("${pkgname}::git+https://github.com/aurapm/haskell-aur.git")
 md5sums=('SKIP')
 options=('strip' 'staticlibs')
 provides=('haskell-aur')
+install=${pkgname}.install
 
 build() {
   cd "${srcdir}/${pkgname}"
