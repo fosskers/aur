@@ -12,9 +12,9 @@ aura="/home/colin/code/haskell/aura"
 # Files to copy from the current Aura source
 news=("$aura/LICENSE"
       "$aura/pkg/aura/usr/bin/aura"
-      "$aura/aura.8"
-      "$aura/completions/bashcompletion.sh"
-      "$aura/completions/_aura")
+      "$aura/doc/aura.8"
+      "$aura/doc/completions/bashcompletion.sh"
+      "$aura/doc/completions/_aura")
 
 # Files to delete before copying
 olds=("LICENSE"
