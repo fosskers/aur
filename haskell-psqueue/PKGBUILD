@@ -1,26 +1,18 @@
 # Maintainer: Colin Woodbury <colingw@gmail.com>
-_hkgname=lens-aeson
-pkgname=haskell-lens-aeson
-pkgver=1.0.0.3
+_hkgname=PSQueue
+pkgname=haskell-psqueue
+pkgver=1.1
 pkgrel=1
-pkgdesc="Law-abiding lenses for aeson"
+pkgdesc="Priority Search Queue"
 url="http://hackage.haskell.org/package/${_hkgname}"
 license=('custom:BSD3')
 arch=('i686' 'x86_64')
 makedepends=()
-depends=('ghc'
-  'haskell-aeson<0.9'
-  'haskell-attoparsec<0.13'
-  'haskell-bytestring'
-  'haskell-lens<5'
-  'haskell-scientific<0.4'
-  'haskell-text<1.3'
-  'haskell-unordered-containers<0.3'
-  'haskell-vector<0.11')
+depends=('ghc')
 options=('strip' 'staticlibs')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-md5sums=('3c9aac642ecd90660c6b9e31d3b57743')
 install=${pkgname}.install
+md5sums=('43649b94d88fe103233e6897a014a89f')
 build() {
     cd ${srcdir}/${_hkgname}-${pkgver}
     runhaskell Setup configure -O ${PKGBUILD_HASKELL_ENABLE_PROFILING:+-p } --enable-split-objs --enable-shared \
