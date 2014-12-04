@@ -1,37 +1,21 @@
-# Maintainer: Colin Woodbury
-_hkgname=wreq
-pkgname=haskell-wreq
-pkgver=0.3.0.0
+# Maintainer: Colin Woodbury <colingw@gmail.com>
+_hkgname=word-trie
+pkgname=haskell-word-trie
+pkgver=0.2.0.4
 pkgrel=1
-pkgdesc="An easy-to-use HTTP client library."
+pkgdesc="Implementation of a finite trie over words."
 url="http://hackage.haskell.org/package/${_hkgname}"
-license=('custom:BSD3')
+license=('GPL-2')
 arch=('i686' 'x86_64')
 makedepends=()
 depends=('ghc'
-  'haskell-aeson>=0.7.0.3'
-  'haskell-attoparsec>=0.11.1.0'
-  'haskell-base16-bytestring'
-  'haskell-byteable'
-  'haskell-bytestring'
-  'haskell-cryptohash'
-  'haskell-exceptions>=0.5'
-  'haskell-hashable'
-  'haskell-http-client-tls>=0.2'
-  'haskell-http-client>=0.4.3'
-  'haskell-http-types>=0.8'
-  'haskell-lens-aeson'
-  'haskell-lens>=4.5'
-  'haskell-mime-types'
-  'haskell-psqueue>=1.1'
-  'haskell-template-haskell'
-  'haskell-text'
-  'haskell-time'
-  'haskell-unordered-containers')
+         'haskell-binary'
+         'haskell-containers'
+         'derive')
 options=('strip' 'staticlibs')
 source=(http://hackage.haskell.org/packages/archive/${_hkgname}/${pkgver}/${_hkgname}-${pkgver}.tar.gz)
-md5sums=('a4d852ffaec8f269bbb04df147455a9d')
 install=${pkgname}.install
+md5sums=('9286e11974089a729f52eeb81fee6a81')
 build() {
     cd ${srcdir}/${_hkgname}-${pkgver}
     runhaskell Setup configure -O ${PKGBUILD_HASKELL_ENABLE_PROFILING:+-p } --enable-split-objs --enable-shared \
@@ -49,6 +33,4 @@ package() {
     install -d -m755 ${pkgdir}/usr/share/doc/ghc/html/libraries
     ln -s /usr/share/doc/${pkgname}/html ${pkgdir}/usr/share/doc/ghc/html/libraries/${_hkgname}
     runhaskell Setup copy --destdir=${pkgdir}
-    install -D -m644 LICENSE.md ${pkgdir}/usr/share/licenses/${pkgname}/LICENSE
-    rm -f ${pkgdir}/usr/share/doc/${pkgname}/LICENSE
 }
